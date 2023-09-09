@@ -5,7 +5,7 @@ namespace EvolvedOrgansRedux {
         public Settings settings = Verse.LoadedModManager.GetMod<EvolvedOrgansReduxSettings>().GetSettings<Settings>();
         public System.Collections.Generic.List<System.Tuple<Verse.RecipeDef, Verse.BodyPartDef>> bodyPartsToDelete = new();
         public System.Collections.Generic.List<System.Tuple<Verse.BodyPartTagDef, float>> BodyPartTagsToRecalculate = new();
-        public System.Collections.Generic.List<string> forbiddenMods = new System.Collections.Generic.List<string>() {
+        public System.Collections.Generic.List<string> forbiddenMods = new() {
                 "Android tiers",
                 "Android tiers - TX Series",
                 "Android Tiers Reforged"

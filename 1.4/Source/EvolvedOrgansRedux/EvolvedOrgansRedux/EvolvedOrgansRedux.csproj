@@ -68,6 +68,7 @@
     <Compile Include="AddDefsForEachModdedRace.cs" />
     <Compile Include="AddMeatToRecipesFromModdedRace.cs" />
     <Compile Include="BodyPartAffinity.cs" />
+    <Compile Include="AddShoulders.cs" />
     <Compile Include="DefModExtensions.cs" />
     <Compile Include="DefOf.cs" />
     <Compile Include="Harmony_Patches.cs" />

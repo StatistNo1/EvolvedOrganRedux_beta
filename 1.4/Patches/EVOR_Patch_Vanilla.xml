@@ -68,9 +68,15 @@
 					<li>Torso</li>
 				</groups>
 			</li>
+		</value>
+	</Operation>
+	<Operation Class="EvolvedOrgansRedux.PatchOperationAddTwoArms">
+		<xpath>Defs/BodyDef[defName="Human"]/corePart/parts</xpath>
+		<order>Append</order>
+		<value>
 			<li>
 				<def>LowerShoulder</def>
-				<customLabel>right lower shoulder</customLabel>
+				<customLabel>right hypocondriac shoulder</customLabel>
 				<woundAnchorTag>RightLowerShoulder</woundAnchorTag>
 				<coverage>0.00</coverage>
 				<groups>
@@ -79,7 +85,55 @@
 			</li>
 			<li>
 				<def>LowerShoulder</def>
-				<customLabel>left lower shoulder</customLabel>
+				<customLabel>left hypocondriac shoulder</customLabel>
+				<woundAnchorTag>LeftLowerShoulder</woundAnchorTag>
+				<coverage>0.00</coverage>
+				<groups>
+					<li>Shoulders</li>
+				</groups>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="EvolvedOrgansRedux.PatchOperationAddFourArms">
+		<xpath>Defs/BodyDef[defName="Human"]/corePart/parts</xpath>
+		<order>Append</order>
+		<value>
+			<li>
+				<def>LowerShoulder</def>
+				<customLabel>right lumbar shoulder</customLabel>
+				<woundAnchorTag>RightLowerShoulder</woundAnchorTag>
+				<coverage>0.00</coverage>
+				<groups>
+					<li>Shoulders</li>
+				</groups>
+			</li>
+			<li>
+				<def>LowerShoulder</def>
+				<customLabel>left lumbar shoulder</customLabel>
+				<woundAnchorTag>LeftLowerShoulder</woundAnchorTag>
+				<coverage>0.00</coverage>
+				<groups>
+					<li>Shoulders</li>
+				</groups>
+			</li>
+		</value>
+	</Operation>
+	<Operation Class="EvolvedOrgansRedux.PatchOperationAddSixArms">
+		<xpath>Defs/BodyDef[defName="Human"]/corePart/parts</xpath>
+		<order>Append</order>
+		<value>
+			<li>
+				<def>LowerShoulder</def>
+				<customLabel>right iliac shoulder</customLabel>
+				<woundAnchorTag>RightLowerShoulder</woundAnchorTag>
+				<coverage>0.00</coverage>
+				<groups>
+					<li>Shoulders</li>
+				</groups>
+			</li>
+			<li>
+				<def>LowerShoulder</def>
+				<customLabel>left iliac shoulder</customLabel>
 				<woundAnchorTag>LeftLowerShoulder</woundAnchorTag>
 				<coverage>0.00</coverage>
 				<groups>

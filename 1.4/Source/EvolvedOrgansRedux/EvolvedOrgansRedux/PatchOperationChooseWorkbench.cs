@@ -12,7 +12,7 @@ namespace EvolvedOrgansRedux {
 			if (modname != null && !Singleton.Instance.settings.ChoicesOfWorkbenches.Contains(modname))
 				Singleton.Instance.settings.ChoicesOfWorkbenches.Add(modname);
 
-			if (Singleton.Instance.settings.ChosenWorkbench == modname) {
+			if (Settings.ChosenWorkbench == modname) {
 				foreach (PatchOperation operation in operations) {
 					if (!operation.Apply(xml)) {
 						lastFailedOperation = operation;

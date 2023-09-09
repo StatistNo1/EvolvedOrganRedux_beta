@@ -10,7 +10,7 @@
                 Verse.Log.Error(errorMessage);
             }
             try {
-                if (Verse.LoadedModManager.GetMod<EvolvedOrgansReduxSettings>().GetSettings<Settings>().BodyPartAffinity) {
+                if (Settings.BodyPartAffinity) {
                     new BodyPartAffinity();
                 }
             } catch (System.Exception e) {
@@ -34,12 +34,12 @@
                 }
             }
             Singleton.Instance.bodyPartsToDelete.Clear();
-            if (Singleton.Instance.settings.ChoicesOfWorkbenches.Count > 1 && Singleton.Instance.settings.ChosenWorkbench == Singleton.Instance.settings.ChoicesOfWorkbenches[0]) {
+            if (Singleton.Instance.settings.ChoicesOfWorkbenches.Count > 1 && Settings.ChosenWorkbench == Singleton.Instance.settings.ChoicesOfWorkbenches[0]) {
                 string label = "EvolvedOrgansRedux";
                 string text = "EvolvedOrgansRedux has detected that you have the mod " +
                     Singleton.Instance.settings.ChoicesOfWorkbenches[1] +
                     " active. In the settings menu you can choose the workbench of that mod to reduce the amount of workbenches and ressources.";
-                if (Singleton.Instance.settings.ChoicesOfWorkbenches.Count > 2 && Singleton.Instance.settings.ChosenWorkbench == Singleton.Instance.settings.ChoicesOfWorkbenches[0]) {
+                if (Singleton.Instance.settings.ChoicesOfWorkbenches.Count > 2 && Settings.ChosenWorkbench == Singleton.Instance.settings.ChoicesOfWorkbenches[0]) {
                     text = "EvolvedOrgansRedux has detected that you have the mods ";
                     for (int i = 1; i < Singleton.Instance.settings.ChoicesOfWorkbenches.Count; i++) {
                         text += "\n\n" + Singleton.Instance.settings.ChoicesOfWorkbenches[i];
@@ -57,11 +57,11 @@
         }
         public override void FinalizeInit() {
             base.FinalizeInit();
-            if (!Singleton.Instance.settings.ImportantMessage20320905) {
+            if (!Settings.ImportantMessage20320905) {
                 Verse.Find.LetterStack.ReceiveLetter("EvolvedOrgansRedux info",
                     "I have removed the setting 'CombatibilitySwitchEORVersionMidSave'. This setting was only there for someone that transitioned from the original EVOR version to this one. It's been a few years now since my version is the only one up to date, so everyone should have disabled that setting by now. If you get problems with your implants switching positions or stuff like that, please let me know on the Steam page.",
                     RimWorld.LetterDefOf.NeutralEvent);
-                Singleton.Instance.settings.ImportantMessage20320905 = true;
+                Settings.ImportantMessage20320905 = true;
                 Verse.LoadedModManager.GetMod<EvolvedOrgansReduxSettings>().WriteSettings();
 
             }
