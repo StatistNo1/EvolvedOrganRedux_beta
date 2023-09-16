@@ -64,16 +64,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddBodyParts.cs" />
     <Compile Include="AddDefsForEachModdedRace.cs" />
     <Compile Include="AddMeatToRecipesFromModdedRace.cs" />
     <Compile Include="BodyPartAffinity.cs" />
-    <Compile Include="AddShoulders.cs" />
+    <Compile Include="PatchOperations\PatchOperationAddShouldersEyesEars.cs" />
     <Compile Include="DefModExtensions.cs" />
     <Compile Include="DefOf.cs" />
     <Compile Include="Harmony_Patches.cs" />
     <Compile Include="HediffCompProperties.cs" />
-    <Compile Include="PatchOperationChooseWorkbench.cs" />
+    <Compile Include="PatchOperations\PatchOperationAddBodyPartAffinity.cs" />
+    <Compile Include="PatchOperations\PatchOperationChooseWorkbench.cs" />
+    <Compile Include="PatchOperations\PatchOperationSequenceRequireResearch.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Initializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

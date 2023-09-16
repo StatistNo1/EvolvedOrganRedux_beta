@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+	<ShowResearchMessageAtNewGame>Show the info letter for the research requirement at the start of a new game?</ShowResearchMessageAtNewGame>
+	<ChosenWorkbench>Check of which mod the organ workbench should be used to create EvolvedOrgansRedux implants.\nThe game has to be restarted for this change to take effect.</ChosenWorkbench>
+	<RequireResearchProject>Require a special research for surgeries to be able to use bodyparts added by this mod?\nThe game has to be restarted for this change to take effect.</RequireResearchProject>
+	<ChangeBestPartEfficiencySpecialWeight>Change the Best-Part-Efficiency-Special-Weight from 75% to 50%? That means that instead of the best eye/ear having 75% effect on the efficiency stat and every other eye 25%, all parts have 50% weight. Natural or not.\nThe game has to be restarted for this change to take effect.</ChangeBestPartEfficiencySpecialWeight>
+	<ChoicesForAmountOfBodyParts>Choose how many of those Bodyparts you want Pawns to have.\nYou need to restart the game for the changes to take effect.\nYou can change these settings in the middle of a playthrough but if you reduce the amount of BodyParts and an implant is installed in one of the removed ones, the implant will dissappear and give an error message. That error message can be ignored.</ChoicesForAmountOfBodyParts>
+	<Arms>Arms:</Arms>
+	<Eyes>Eyes:</Eyes>
+	<Ears>Ears:</Ears>
+	<ChoicesOfWorkbenchesPartOneSingle>EvolvedOrgansRedux has detected that you have the mod {0} enabled. In the settings menu you can choose the workbench of that mod to reduce the amount of workbenches and ressources.</ChoicesOfWorkbenchesPartOneSingle>
+	<!--<ChoicesOfWorkbenchesPartTwoSingle> enabled. In the settings menu you can choose the workbench of that mod to reduce the amount of workbenches and ressources.</ChoicesOfWorkbenchesPartTwoSingle>-->
+	<ChoicesOfWorkbenchesPartOneMultiple>EvolvedOrgansRedux has detected that you have the mods </ChoicesOfWorkbenchesPartOneMultiple>
+	<ChoicesOfWorkbenchesPartTwoMultiple>\n\nenabled.\nIn the settings menu you can choose a workbench of those mods to reduce the amount of workbenches and ressources.</ChoicesOfWorkbenchesPartTwoMultiple>
+	<ShowResearchMessageAtNewGameLetterName>EvolvedOrgansRedux additional bodyparts</ShowResearchMessageAtNewGameLetterName>
+	<ShowResearchMessageAtNewGameLetterContent>To install implants in the LowerShoulders, Tail and Back you need to research the Limb-Torso Support Structures project.\nTo install implants in the BodyCavities you need to research the Additional Organs project.\n\nYou can disable the research requirement in the settings.</ShowResearchMessageAtNewGameLetterContent>
+</LanguageData>

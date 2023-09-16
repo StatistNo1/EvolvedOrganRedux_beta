@@ -201,7 +201,7 @@
 		<defName>EVOR_Hediff_Appendage_SonicImpactMace</defName>
 		<label>&lt;color=#00FFF7&gt;sonic impact mace&lt;/color&gt;</label>
 		<labelNoun>sonic impact mace</labelNoun>
-		<addedPartProps><partEfficiency>1.25</partEfficiency><isGoodWeapon>true</isGoodWeapon></addedPartProps>
+		<addedPartProps><partEfficiency>1</partEfficiency><isGoodWeapon>true</isGoodWeapon></addedPartProps>
 		<spawnThingOnRemoved>EVOR_Item_Appendage_SonicImpactMace</spawnThingOnRemoved>
 		<comps>
 			<li Class="HediffCompProperties_VerbGiver">

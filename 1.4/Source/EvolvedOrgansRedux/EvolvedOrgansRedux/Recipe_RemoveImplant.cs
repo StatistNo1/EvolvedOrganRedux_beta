@@ -11,9 +11,13 @@ namespace EvolvedOrgansRedux {
 			List<Hediff> allHediffs = pawn.health.hediffSet.hediffs;
 			for (int i = 0; i < allHediffs.Count; i++) {
 				if (allHediffs[i].Part != null && allHediffs[i].def == recipe.removesHediff && allHediffs[i].Visible && 
-					(allHediffs[i].Part.def == DefOf.Back || allHediffs[i].Part.def == DefOf.BodyCavity1 ||
-					allHediffs[i].Part.def == DefOf.BodyCavity2 || allHediffs[i].Part.def == DefOf.BodyCavityA ||
-					allHediffs[i].Part.def == DefOf.LowerShoulder)) {
+					(allHediffs[i].Part.def == DefOf.Back ||
+					allHediffs[i].Part.def == DefOf.BodyCavity1 ||
+					allHediffs[i].Part.def == DefOf.BodyCavity2 ||
+					allHediffs[i].Part.def == DefOf.BodyCavityA ||
+					allHediffs[i].Part.def == DefOf.LowerShoulder ||
+					allHediffs[i].Part.def == DefOf.EVOR_AdditionalEye ||
+					allHediffs[i].Part.def == DefOf.EVOR_AdditionalEar)) {
 					yield return allHediffs[i].Part;
 				}
 			}
