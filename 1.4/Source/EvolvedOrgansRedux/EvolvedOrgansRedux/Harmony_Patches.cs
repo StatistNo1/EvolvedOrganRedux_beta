@@ -8,11 +8,11 @@ using Verse;
 namespace EvolvedOrgansRedux {
     [StaticConstructorOnStartup]
     public static class HarmonyPatches {
+        private static bool BodyPartIsMissing = false;
         private static readonly System.Type patchType = typeof(HarmonyPatches);
         private static readonly Harmony harmony = new Harmony(Singleton.Instance.Settings.Mod.Content.Name);
         static HarmonyPatches() {
             PatcherPostFix(typeof(AgeInjuryUtility), nameof(AgeInjuryUtility.RandomHediffsToGainOnBirthday), nameof(RandomHediffsToGainOnBirthday_Postfix), new System.Type[] { typeof(Pawn), typeof(int) });
-            PatcherPostFix(typeof(Recipe_RemoveBodyPart), nameof(Recipe_RemoveBodyPart.GetPartsToApplyOn), nameof(Recipe_RemoveBodyPart_Postfix));
             PatcherTranspiler(typeof(PawnCapacityUtility), nameof(PawnCapacityUtility.CalculateTagEfficiency), nameof(CalculateTagEfficiency_Transpilerfix));
             PatcherTranspiler(typeof(PawnCapacityUtility), nameof(PawnCapacityUtility.CalculateLimbEfficiency), nameof(CalculateLimbEfficiency_Transpilerfix));
             if (Settings.ChangeBestPartEfficiencySpecialWeight)
@@ -24,14 +24,6 @@ namespace EvolvedOrgansRedux {
                     Log.Message("EvolvedOrgansRedux -> Pawn is immortal because of Ras Vacoule.");
                 __result = Enumerable.Empty<HediffGiver_Birthday>();
             }
-        }
-        private static void Recipe_RemoveBodyPart_Postfix(ref IEnumerable<BodyPartRecord> __result) {
-            //Remove the Recipe_RemoveBodyPart for the bodyparts added by this mod.
-            //I would rather use my custom Recipe_RemoveImplant.
-            __result = __result.Where(bodypartrecord => bodypartrecord.def != DefOf.LowerShoulder && bodypartrecord.def != DefOf.Back &&
-                bodypartrecord.def != DefOf.BodyCavity1 && bodypartrecord.def != DefOf.BodyCavity2 && bodypartrecord.def != DefOf.BodyCavityA
-                && bodypartrecord.def != DefOf.Tail &&
-                bodypartrecord.def != DefOf.EVOR_AdditionalEar && bodypartrecord.def != DefOf.EVOR_AdditionalEye);
         }
         private static void CalculateTagEfficiency_Prefix(ref float bestPartEfficiencySpecialWeight) {
             bestPartEfficiencySpecialWeight = 0.5f;
@@ -96,16 +88,22 @@ namespace EvolvedOrgansRedux {
             if (!instructionFound)
                 Log.Error("EvolvedOrgansRedux -> Instruction not found in CalculateLimbEfficiency_Transpilerfix");
         }
-        static float FixTotalEfficiencyOfAllParts(HediffSet diffSet, BodyPartTagDef tag, float TotalEfficiencyOfAllParts) {
+        static float FixTotalEfficiencyOfAllParts(HediffSet diffSet, BodyPartTagDef tag, float totalEfficiencyOfAllParts) {
             //If the target is a human and the current calculating part is in the list
-            if (diffSet.pawn.RaceProps.intelligence == Intelligence.Humanlike && Singleton.Instance.BodyPartTagsToRecalculate.ContainsKey(tag))
-                TotalEfficiencyOfAllParts -= Singleton.Instance.BodyPartTagsToRecalculate[tag];
-            return TotalEfficiencyOfAllParts;
+            if (diffSet.pawn.RaceProps?.Humanlike == true && Singleton.Instance.BodyPartTagsToRecalculate.ContainsKey(tag)) {
+                if (totalEfficiencyOfAllParts - Singleton.Instance.BodyPartTagsToRecalculate[tag] >= 2f)
+                    totalEfficiencyOfAllParts -= Singleton.Instance.BodyPartTagsToRecalculate[tag];
+                else
+                    BodyPartIsMissing = true;
+            }
+            return totalEfficiencyOfAllParts;
         }
         static int FixAmountOfBodyPartsWithTag(HediffSet diffSet, BodyPartTagDef tag, int AmountOfBodyPartsWithTag) {
             //If the target is a human and the current calculating part is in the list
-            if (diffSet.pawn.RaceProps.intelligence == Intelligence.Humanlike && Singleton.Instance.BodyPartTagsToRecalculate.ContainsKey(tag))
+            if (diffSet.pawn.RaceProps?.Humanlike == true && Singleton.Instance.BodyPartTagsToRecalculate.ContainsKey(tag) && !BodyPartIsMissing) {
                 AmountOfBodyPartsWithTag -= Singleton.Instance.BodyPartTagsToRecalculate[tag];
+            }
+            BodyPartIsMissing = false;
             return AmountOfBodyPartsWithTag;
         }
         private static void PatcherPostFix(System.Type typeOfMethodToPatch, string nameOfMethodToPatch, string nameOfPatcherMethod, System.Type[] parameters = null) {

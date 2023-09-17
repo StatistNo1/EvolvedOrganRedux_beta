@@ -1,18 +1,19 @@
 ﻿namespace EvolvedOrgansRedux {
     [RimWorld.DefOf]
     public static class DefOf {
-        public static Verse.BodyPartDef Heart;
-        public static Verse.BodyPartDef Lung;
         public static Verse.BodyPartDef Shoulder;
-        public static Verse.BodyPartDef Eye;
         public static Verse.BodyPartDef Ear;
         public static Verse.BodyPartDef LowerShoulder;
         public static Verse.BodyPartDef EVOR_AdditionalClavicle;
+        public static Verse.BodyPartDef Clavicle;
         public static Verse.BodyPartDef EVOR_AdditionalArm;
         public static Verse.BodyPartDef EVOR_AdditionalHumerus;
+        public static Verse.BodyPartDef Humerus;
         public static Verse.BodyPartDef EVOR_AdditionalRadius;
+        public static Verse.BodyPartDef Radius;
         public static Verse.BodyPartDef EVOR_AdditionalHand;
         public static Verse.BodyPartDef EVOR_AdditionalFinger;
+        public static Verse.BodyPartDef Finger;
         public static Verse.BodyPartDef EVOR_AdditionalEye;
         public static Verse.BodyPartDef EVOR_AdditionalEar;
         public static Verse.BodyPartDef Back;

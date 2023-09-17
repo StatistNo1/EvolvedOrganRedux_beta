@@ -1,18 +1,15 @@
-﻿using RimWorld;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Verse;
 
 namespace EvolvedOrgansRedux {
-    public class Finished_EVOR_Research_CopyBodyPartsFromRecipeToRecipe : ResearchMod {
+    public class Finished_EVOR_Research_AddBodyPartToRecipeThatHasBodyPart : ResearchMod {
         public BodyPartDef BodyPartsToCopyFrom;
         public BodyPartDef BodyPartsToCopyTo;
-        public PawnCapacityDef PawnCapacityDefToAdd;
-        public float CapacityDefModifier = 1f;
         private bool AlreadyApplied = false;
         public override void Apply() {
             if (!AlreadyApplied && Settings.RequireResearchProject) {
-                BodyPartAffinity.AddEVORBodyPartsToRecipes(BodyPartsToCopyFrom, BodyPartsToCopyTo, PawnCapacityDefToAdd, CapacityDefModifier);
+                BodyPartAffinity.AddEVORBodyPartsToRecipes(BodyPartsToCopyFrom, BodyPartsToCopyTo);
                 AlreadyApplied = true;
             }
         }
@@ -39,7 +36,7 @@ namespace EvolvedOrgansRedux {
         public bool AlreadyApplied = false;
         public override void Apply() {
             if (!AlreadyApplied && Settings.RequireResearchProject) {
-                Singleton.Instance.Test.Add(this);
+                Singleton.Instance.BodyPartsToReset.Add(this);
                 BodyPart.tags.AddRange(TagsToAdd);
                 BodyDef bodyDef = DefDatabase<BodyDef>.GetNamed("Human");
                 List<BodyPartRecord> PartsWithDefs = bodyDef.GetPartsWithDef(BodyPart);

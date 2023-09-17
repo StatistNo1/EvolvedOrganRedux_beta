@@ -10,6 +10,7 @@
 		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
 		<frostbiteVulnerability>0</frostbiteVulnerability>
 		<canScarify>false</canScarify>
+		<tags/>
 	</BodyPartDef>
 	<BodyPartDef>
 		<defName>EVOR_AdditionalArm</defName>
@@ -20,6 +21,7 @@
 		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
 		<frostbiteVulnerability>0</frostbiteVulnerability>
 		<canScarify>false</canScarify>
+		<tags/>
 	</BodyPartDef>
 	<BodyPartDef>
 		<defName>EVOR_AdditionalHand</defName>
@@ -29,6 +31,7 @@
 		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
 		<frostbiteVulnerability>0</frostbiteVulnerability>
 		<canScarify>false</canScarify>
+		<tags/>
 	</BodyPartDef>
 	<BodyPartDef>
 		<defName>EVOR_AdditionalFinger</defName>
@@ -39,6 +42,7 @@
 		<frostbiteVulnerability>0</frostbiteVulnerability>
 		<canScarify>false</canScarify>
 		<skinCovered>true</skinCovered>
+		<tags/>
 	</BodyPartDef>
 	<BodyPartDef>
 		<defName>EVOR_AdditionalClavicle</defName>
@@ -51,6 +55,7 @@
 		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
 		<frostbiteVulnerability>0</frostbiteVulnerability>
 		<canScarify>false</canScarify>
+		<tags/>
 	</BodyPartDef>
 	<BodyPartDef>
 		<defName>EVOR_AdditionalHumerus</defName>
@@ -63,6 +68,7 @@
 		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
 		<frostbiteVulnerability>0</frostbiteVulnerability>
 		<canScarify>false</canScarify>
+		<tags/>
 	</BodyPartDef>
 	<BodyPartDef>
 		<defName>EVOR_AdditionalRadius</defName>
@@ -75,6 +81,7 @@
 		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
 		<frostbiteVulnerability>0</frostbiteVulnerability>
 		<canScarify>false</canScarify>
+		<tags/>
 	</BodyPartDef>
 	<BodyPartDef>
 		<defName>EVOR_AdditionalEye</defName>
@@ -160,6 +167,7 @@
 		<destroyableByDamage>false</destroyableByDamage>
 		<tags>
 			<li>ManipulationLimbCore</li>
+			<li>MovingLimbCore</li>
 		</tags>
 		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
 		<frostbiteVulnerability>0</frostbiteVulnerability>

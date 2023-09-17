@@ -63,24 +63,56 @@
 					</li>
 				</value>
 			</li>
-			<li Class="EvolvedOrgansRedux.PatchOperationAdd_BodyPartAffinity_RequireResearchEnabled">
-				<xpath>Defs/ResearchProjectDef[defName="EVOR_Research_AdditionalEyes"]/researchMods</xpath>
-				<value>
-					<li Class="EvolvedOrgansRedux.Finished_EVOR_Research_AddGroupsAndTags">
-						<BodyPart>EVOR_AdditionalEye</BodyPart>
-						<TagsToAdd><li>SightSource</li></TagsToAdd>
-						<GroupsToAdd><li>Eyes</li></GroupsToAdd>
+			<li Class="EvolvedOrgansRedux.PatchOperations.PatchOperationSequenceRequireResearch">
+				<operations>
+					<!-- Add tags and groups -->
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ResearchProjectDef[defName="EVOR_Research_AdditionalEyes"]/researchMods</xpath>
+						<value>
+							<li Class="EvolvedOrgansRedux.Finished_EVOR_Research_AddGroupsAndTags">
+								<BodyPart>EVOR_AdditionalEye</BodyPart>
+								<TagsToAdd>
+									<li>SightSource</li>
+								</TagsToAdd>
+								<GroupsToAdd>
+									<li>Eyes</li>
+								</GroupsToAdd>
+							</li>
+						</value>
 					</li>
-				</value>
+					<!-- Add Affinities -->
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ResearchProjectDef[defName="EVOR_Research_AdditionalEyes"]/researchMods</xpath>
+						<value>
+							<li Class="EvolvedOrgansRedux.Finished_EVOR_Research_AddBodyPartToRecipeThatHasBodyPart">
+								<BodyPartsToCopyFrom>Eye</BodyPartsToCopyFrom>
+								<BodyPartsToCopyTo>EVOR_AdditionalEye</BodyPartsToCopyTo>
+							</li>
+						</value>
+					</li>
+				</operations>
 			</li>
-			<li Class="EvolvedOrgansRedux.PatchOperationAdd_BodyPartAffinity_RequireResearchEnabled">
-				<xpath>Defs/ResearchProjectDef[defName="EVOR_Research_AdditionalEyes"]/researchMods</xpath>
-				<value>
-					<li Class="EvolvedOrgansRedux.Finished_EVOR_Research_CopyBodyPartsFromRecipeToRecipe">
-						<BodyPartsToCopyFrom>Eye</BodyPartsToCopyFrom>
-						<BodyPartsToCopyTo>EVOR_AdditionalEye</BodyPartsToCopyTo>
+			<li Class="EvolvedOrgansRedux.PatchOperations.PatchOperationSequenceDontRequireResearch">
+				<operations>
+					<!-- Remove ResearchProject -->
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/ResearchProjectDef[defName="EVOR_Research_AdditionalEyes"]</xpath>
 					</li>
-				</value>
+					<!-- Add Groups -->
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/BodyDef[defName="Human"]/corePart/parts/li[def="Neck"]/parts/li[def="Head"]/parts/li[def="EVOR_AdditionalEye"]/groups</xpath>
+						<value>
+							<li>Eyes</li>
+						</value>
+					</li>
+					<!-- Add Tags -->
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/BodyPartDef[defName="EVOR_AdditionalEye"]/tags</xpath>
+						<value>
+							<li>SightSource</li>
+						</value>
+					</li>
+				</operations>
 			</li>
 		</operations>
 	</Operation>
