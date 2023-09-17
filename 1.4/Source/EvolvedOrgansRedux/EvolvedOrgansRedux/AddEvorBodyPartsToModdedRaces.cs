@@ -42,7 +42,8 @@ namespace EvolvedOrgansRedux {
             foreach (BodyPartRecord bodyPartRecord in DefDatabase<BodyDef>.GetNamed("Human").AllParts
                 .Where(e => e.def.modContentPack == Singleton.Instance.Settings.Mod.Content))
                 if (!raceProperties.body.AllParts.Exists(e => e.def.defName.ToLower().Contains(bodyPartRecord.def.defName.ToLower())))
-                    raceProperties.body.corePart.parts.Add(CopyBodyPartRecord(bodyPartRecord, raceProperties));
+                    foreach (BodyPartRecord bpr in raceProperties.body.AllParts.Where(e => e.def == bodyPartRecord.parent.def))
+                        bpr.parts.Add(CopyBodyPartRecord(bodyPartRecord, raceProperties));
                 else
                     foreach (BodyPartTagDef bodyPartTagDef in bodyPartRecord.def.tags)
                         if (!raceProperties.body.AllParts.Find(e => e.def.defName.ToLower().Contains(bodyPartRecord.def.defName.ToLower())).def.tags.Contains(bodyPartTagDef))
