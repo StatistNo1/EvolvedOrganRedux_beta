@@ -3,10 +3,10 @@ using System.Xml;
 using Verse;
 
 namespace EvolvedOrgansRedux.PatchOperations {
-	public class PatchOperationSequenceRequireResearch : PatchOperation {
+	public class PatchOperationSequenceDontRequireResearch : PatchOperation {
 		// Token: 0x0600130B RID: 4875 RVA: 0x0006EE58 File Offset: 0x0006D058
 		protected override bool ApplyWorker(XmlDocument xml) {
-			if (Settings.RequireResearchProject)
+			if (!Settings.RequireResearchProject)
 				foreach (PatchOperation patchOperation in this.operations) {
 					if (!patchOperation.Apply(xml)) {
 						this.lastFailedOperation = patchOperation;

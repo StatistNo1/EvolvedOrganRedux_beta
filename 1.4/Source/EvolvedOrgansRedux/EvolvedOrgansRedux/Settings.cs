@@ -4,6 +4,7 @@ namespace EvolvedOrgansRedux {
     public class Settings : ModSettings {
         public static string ChosenWorkbench = "Evolved Organs Redux";
         public static bool ImportantMessage20320905 = false;
+        public static bool ImportantMessage20230917 = false;
         public static bool RequireResearchProject = true;
         public static bool ChangeBestPartEfficiencySpecialWeight = false;
         public static bool ShowResearchMessageAtNewGame = false;
@@ -15,6 +16,7 @@ namespace EvolvedOrgansRedux {
         public override void ExposeData() {
             Scribe_Values.Look(ref ChosenWorkbench, "ChosenWorkbench", defaultValue: "Evolved Organs Redux");
             Scribe_Values.Look(ref ImportantMessage20320905, "RemovedSetting-CombatibilitySwitchEORVersionMidSave", defaultValue: false, true);
+            Scribe_Values.Look(ref ImportantMessage20230917, "ImportantMessage20230917", defaultValue: false, true);
             Scribe_Values.Look(ref AmountOfArms, "AmountOfArms", defaultValue: 4);
             Scribe_Values.Look(ref AmountOfEyes, "AmountOfEyes", defaultValue: 2);
             Scribe_Values.Look(ref AmountOfEars, "AmountOfEars", defaultValue: 2);

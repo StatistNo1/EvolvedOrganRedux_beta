@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
-	<!-- Adds the ears depending on settings -->
 	<Operation Class="PatchOperationSequence">
 		<operations>
+			<!-- Adds the ears depending on settings -->
 			<li Class="EvolvedOrgansRedux.PatchOperationAddTwoEars">
 				<xpath>Defs/BodyDef[defName="Human"]/corePart/parts/li[def="Neck"]/parts/li[def="Head"]/parts</xpath>
 				<order>Append</order>
@@ -63,29 +63,58 @@
 					</li>
 				</value>
 			</li>
-			<li Class="EvolvedOrgansRedux.PatchOperationAdd_BodyPartAffinity_RequireResearchEnabled">
-				<xpath>Defs/ResearchProjectDef[defName="EVOR_Research_AdditionalEars"]/researchMods</xpath>
-				<value>
-					<li Class="EvolvedOrgansRedux.Finished_EVOR_Research_AddGroupsAndTags">
-						<BodyPart>EVOR_AdditionalEar</BodyPart>
-						<TagsToAdd>
-							<li>HearingSource</li>
-						</TagsToAdd>
-						<GroupsToAdd>
+			<li Class="EvolvedOrgansRedux.PatchOperations.PatchOperationSequenceRequireResearch">
+				<operations>
+					<!-- Add tags and groups -->
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ResearchProjectDef[defName="EVOR_Research_AdditionalEars"]/researchMods</xpath>
+						<value>
+							<li Class="EvolvedOrgansRedux.Finished_EVOR_Research_AddGroupsAndTags">
+								<BodyPart>EVOR_AdditionalEar</BodyPart>
+								<TagsToAdd>
+									<li>HearingSource</li>
+								</TagsToAdd>
+								<GroupsToAdd>
+									<li>UpperHead</li>
+									<li>FullHead</li>
+								</GroupsToAdd>
+							</li>
+						</value>
+					</li>
+					<!-- Add Affinities -->
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/ResearchProjectDef[defName="EVOR_Research_AdditionalEars"]/researchMods</xpath>
+						<value>
+							<li Class="EvolvedOrgansRedux.Finished_EVOR_Research_AddBodyPartToRecipeThatHasBodyPart">
+								<BodyPartsToCopyFrom>Ear</BodyPartsToCopyFrom>
+								<BodyPartsToCopyTo>EVOR_AdditionalEar</BodyPartsToCopyTo>
+							</li>
+						</value>
+					</li>
+				</operations>
+			</li>
+			<li Class="EvolvedOrgansRedux.PatchOperations.PatchOperationSequenceDontRequireResearch">
+				<operations>
+					<!-- Remove ResearchProject -->
+					<li Class="PatchOperationRemove">
+						<xpath>Defs/ResearchProjectDef[defName="EVOR_Research_AdditionalEars"]</xpath>
+					</li>
+					<!-- Add Groups -->
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/BodyDef[defName="Human"]/corePart/parts/li[def="Neck"]/parts/li[def="Head"]/parts/li[def="EVOR_AdditionalEar"]/groups</xpath>
+						<value>
 							<li>UpperHead</li>
 							<li>FullHead</li>
-						</GroupsToAdd>
+						</value>
 					</li>
-				</value>
-			</li>
-			<li Class="EvolvedOrgansRedux.PatchOperationAdd_BodyPartAffinity_RequireResearchEnabled">
-				<xpath>Defs/ResearchProjectDef[defName="EVOR_Research_AdditionalEars"]/researchMods</xpath>
-				<value>
-					<li Class="EvolvedOrgansRedux.Finished_EVOR_Research_CopyBodyPartsFromRecipeToRecipe">
-						<BodyPartsToCopyFrom>Ear</BodyPartsToCopyFrom>
-						<BodyPartsToCopyTo>EVOR_AdditionalEar</BodyPartsToCopyTo>
+					<!-- Add Tags -->
+					<li Class="PatchOperationAdd">
+						<xpath>Defs/BodyPartDef[defName="EVOR_AdditionalEar"]/tags</xpath>
+						<value>
+							<li>HearingSource</li>
+						</value>
 					</li>
-				</value>
+				</operations>
 			</li>
 		</operations>
 	</Operation>
