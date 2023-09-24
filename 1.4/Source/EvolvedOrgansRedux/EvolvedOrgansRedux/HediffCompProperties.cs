@@ -1,36 +1,13 @@
 ﻿using Verse;
 
 namespace EvolvedOrgansRedux {
-    public class EVOR_HediffCompProperties_ReplaceHediff : HediffCompProperties {
-        public HediffDef hediffDef;
-        public EVOR_HediffCompProperties_ReplaceHediff() {
-			compClass = typeof(EVOR_HediffComp_ReplaceHediff);
-		}
-    }
-    public class EVOR_HediffComp_ReplaceHediff : HediffComp {
-        public EVOR_HediffCompProperties_ReplaceHediff Props => (EVOR_HediffCompProperties_ReplaceHediff)props;
-        public override void CompPostTick(ref float severityAdjustment) {
-            try {
-                Pawn.health.AddHediff(Props.hediffDef, parent.Part);
-                Pawn.health.RemoveHediff(parent);
-                Verse.Log.Message("Replaced " + parent.def.defName + " with " + Props.hediffDef.defName);
-            } catch (System.Exception e) {
-                try {
-                    Verse.Log.Error("EVOR: Error when replacing " + parent.def.defName + " with " + Props.hediffDef.defName + "\n" + e);
-                } catch {
-                    Verse.Log.Error("EVOR: Critical error when replacing something.\n" + e);
-                }
-            }
-
-        }
-    }
-    public class EVOR_HediffCompProperties_ButchersNailsBloodlust : Verse.HediffCompProperties {
+    public class EVOR_HediffCompProperties_ButchersNailsBloodlust : HediffCompProperties {
 		public float daysUntilBerserk = 7;
         public EVOR_HediffCompProperties_ButchersNailsBloodlust() {
             compClass = typeof(EVOR_HediffComp_ButchersNailsBloodlust);
         }
     }
-    public class EVOR_HediffComp_ButchersNailsBloodlust : Verse.HediffComp {
+    public class EVOR_HediffComp_ButchersNailsBloodlust : HediffComp {
 		private float ticksUntilBreakBase => Props.daysUntilBerserk * 60000f;
 		private float ticksUntilBreakCurrent;
         private int amountOfKilledHumanlikes;

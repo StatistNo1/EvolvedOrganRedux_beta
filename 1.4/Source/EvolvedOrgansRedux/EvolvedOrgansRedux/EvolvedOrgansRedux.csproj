@@ -68,7 +68,6 @@
     <Compile Include="BodyPartAffinity.cs" />
     <Compile Include="PatchOperations\PatchOperationAddShouldersEyesEars.cs" />
     <Compile Include="DefModExtensions.cs" />
-    <Compile Include="DefOf.cs" />
     <Compile Include="Harmony_Patches.cs" />
     <Compile Include="HediffCompProperties.cs" />
     <Compile Include="PatchOperations\PatchOperationChooseWorkbench.cs" />
