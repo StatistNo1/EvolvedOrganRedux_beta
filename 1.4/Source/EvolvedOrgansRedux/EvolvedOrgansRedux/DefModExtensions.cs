@@ -3,6 +3,7 @@ using System.Linq;
 using Verse;
 
 namespace EvolvedOrgansRedux {
+    public class EVOR_DefModExtension_BodyDefToModify : DefModExtension {}
     public class EVOR_DefModExtension_BodyPartDefToGetSurgeryDefsFromToModify : DefModExtension {
         public BodyPartDef BodyPartDefToGetSurgeryDefsFromToModify;
     }
@@ -41,7 +42,7 @@ namespace EvolvedOrgansRedux {
             if (!AlreadyApplied && Settings.RequireResearchProject) {
                 Singleton.Instance.BodyPartsToReset.Add(this);
                 BodyPart.tags.AddRange(TagsToAdd);
-                foreach (BodyDef bodyDef in DefDatabase<BodyDef>.AllDefs.Where(e => e.GetPartsWithDef(DefOf.Back).Count > 0)) {
+                foreach (BodyDef bodyDef in DefDatabase<BodyDef>.AllDefs.Where(e => e.HasModExtension<EVOR_DefModExtension_BodyDefToModify>())) {
                     List<BodyPartRecord> PartsWithDefs = bodyDef.GetPartsWithDef(BodyPart);
                     foreach (BodyPartTagDef tag in TagsToAdd)
                         if (bodyDef.cachedPartsByTag.ContainsKey(tag))
