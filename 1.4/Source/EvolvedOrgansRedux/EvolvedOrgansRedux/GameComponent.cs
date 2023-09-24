@@ -19,10 +19,11 @@ namespace EvolvedOrgansRedux {
                 BodyPartAffinity.AddEVORBodyPartsToRecipes(DefOf.Clavicle, DefOf.EVOR_AdditionalClavicle);
                 BodyPartAffinity.AddEVORBodyPartsToRecipes(BodyPartDefOf.Lung, DefOf.BodyCavity1);
                 BodyPartAffinity.AddEVORBodyPartsToRecipes(BodyPartDefOf.Heart, DefOf.BodyCavity2);
-                //Singleton.Instance.FillListsOfBodyPartTagsToRecalculate();
             }
             BodyPartAffinity.AddCapModsToHediffs(BodyPartDefOf.Lung, PawnCapacityDefOf.Breathing, 0.1f);
             BodyPartAffinity.AddCapModsToHediffs(BodyPartDefOf.Heart, PawnCapacityDefOf.BloodPumping, 0.1f);
+            Singleton.Instance.FillListsOfBodyPartTagsToRecalculate();
+
         }
     }
     public class GameComponent : Verse.GameComponent {
@@ -61,7 +62,7 @@ namespace EvolvedOrgansRedux {
                 Find.LetterStack.ReceiveLetter("EvolvedOrgansReduxinfo".Translate(),
                     "ImportantMessage20230917".Translate(),
                     LetterDefOf.NeutralEvent);
-                Settings.ImportantMessage20320905 = true;
+                Settings.ImportantMessage20230917 = true;
             }
             LoadedModManager.GetMod<EvolvedOrgansReduxSettings>().WriteSettings();
         }

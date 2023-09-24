@@ -38,13 +38,14 @@ namespace EvolvedOrgansRedux {
             if (!AlreadyApplied && Settings.RequireResearchProject) {
                 Singleton.Instance.BodyPartsToReset.Add(this);
                 BodyPart.tags.AddRange(TagsToAdd);
-                BodyDef bodyDef = DefDatabase<BodyDef>.GetNamed("Human");
-                List<BodyPartRecord> PartsWithDefs = bodyDef.GetPartsWithDef(BodyPart);
-                foreach (BodyPartTagDef tag in TagsToAdd)
-                    if (bodyDef.cachedPartsByTag.ContainsKey(tag))
-                        bodyDef.cachedPartsByTag[tag].AddRange(PartsWithDefs);
-                foreach (BodyPartRecord bpr in PartsWithDefs)
-                    bpr.groups.AddRange(GroupsToAdd);
+                foreach (BodyDef bodyDef in DefDatabase<BodyDef>.AllDefs.Where(e => e.GetPartsWithDef(DefOf.Back).Count > 0)) {
+                    List<BodyPartRecord> PartsWithDefs = bodyDef.GetPartsWithDef(BodyPart);
+                    foreach (BodyPartTagDef tag in TagsToAdd)
+                        if (bodyDef.cachedPartsByTag.ContainsKey(tag))
+                            bodyDef.cachedPartsByTag[tag].AddRange(PartsWithDefs);
+                    foreach (BodyPartRecord bpr in PartsWithDefs)
+                        bpr.groups.AddRange(GroupsToAdd);
+                }
                 Singleton.Instance.FillListsOfBodyPartTagsToRecalculate();
                 AlreadyApplied = true;
             }

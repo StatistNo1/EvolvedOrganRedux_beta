@@ -100,9 +100,8 @@ namespace EvolvedOrgansRedux {
         }
         static int FixAmountOfBodyPartsWithTag(HediffSet diffSet, BodyPartTagDef tag, int AmountOfBodyPartsWithTag) {
             //If the target is a human and the current calculating part is in the list
-            if (diffSet.pawn.RaceProps?.Humanlike == true && Singleton.Instance.BodyPartTagsToRecalculate.ContainsKey(tag) && !BodyPartIsMissing) {
+            if (diffSet.pawn.RaceProps?.Humanlike == true && Singleton.Instance.BodyPartTagsToRecalculate.ContainsKey(tag) && !BodyPartIsMissing)
                 AmountOfBodyPartsWithTag -= Singleton.Instance.BodyPartTagsToRecalculate[tag];
-            }
             BodyPartIsMissing = false;
             return AmountOfBodyPartsWithTag;
         }
