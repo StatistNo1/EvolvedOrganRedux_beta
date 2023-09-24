@@ -3,6 +3,9 @@ using System.Linq;
 using Verse;
 
 namespace EvolvedOrgansRedux {
+    public class EVOR_DefModExtension_BodyPartDefToGetSurgeryDefsFromToModify : DefModExtension {
+        public BodyPartDef BodyPartDefToGetSurgeryDefsFromToModify;
+    }
     public class Finished_EVOR_Research_AddBodyPartToRecipeThatHasBodyPart : ResearchMod {
         public BodyPartDef BodyPartsToCopyFrom;
         public BodyPartDef BodyPartsToCopyTo;

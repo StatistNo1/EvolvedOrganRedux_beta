@@ -11,6 +11,11 @@
 		<frostbiteVulnerability>0</frostbiteVulnerability>
 		<canScarify>false</canScarify>
 		<tags/>
+        <modExtensions>
+            <li Class="EvolvedOrgansRedux.EVOR_DefModExtension_BodyPartDefToGetSurgeryDefsFromToModify">
+                <BodyPartDefToGetSurgeryDefsFromToModify>Shoulder</BodyPartDefToGetSurgeryDefsFromToModify>
+            </li>
+        </modExtensions>
 	</BodyPartDef>
 	<BodyPartDef>
 		<defName>EVOR_AdditionalArm</defName>
@@ -22,6 +27,11 @@
 		<frostbiteVulnerability>0</frostbiteVulnerability>
 		<canScarify>false</canScarify>
 		<tags/>
+        <modExtensions>
+            <li Class="EvolvedOrgansRedux.EVOR_DefModExtension_BodyPartDefToGetSurgeryDefsFromToModify">
+                <BodyPartDefToGetSurgeryDefsFromToModify>Arm</BodyPartDefToGetSurgeryDefsFromToModify>
+            </li>
+        </modExtensions>
 	</BodyPartDef>
 	<BodyPartDef>
 		<defName>EVOR_AdditionalHand</defName>
@@ -32,6 +42,11 @@
 		<frostbiteVulnerability>0</frostbiteVulnerability>
 		<canScarify>false</canScarify>
 		<tags/>
+        <modExtensions>
+            <li Class="EvolvedOrgansRedux.EVOR_DefModExtension_BodyPartDefToGetSurgeryDefsFromToModify">
+                <BodyPartDefToGetSurgeryDefsFromToModify>Hand</BodyPartDefToGetSurgeryDefsFromToModify>
+            </li>
+        </modExtensions>
 	</BodyPartDef>
 	<BodyPartDef>
 		<defName>EVOR_AdditionalFinger</defName>
@@ -43,6 +58,11 @@
 		<canScarify>false</canScarify>
 		<skinCovered>true</skinCovered>
 		<tags/>
+        <modExtensions>
+            <li Class="EvolvedOrgansRedux.EVOR_DefModExtension_BodyPartDefToGetSurgeryDefsFromToModify">
+                <BodyPartDefToGetSurgeryDefsFromToModify>Finger</BodyPartDefToGetSurgeryDefsFromToModify>
+            </li>
+        </modExtensions>
 	</BodyPartDef>
 	<BodyPartDef>
 		<defName>EVOR_AdditionalClavicle</defName>
@@ -56,6 +76,11 @@
 		<frostbiteVulnerability>0</frostbiteVulnerability>
 		<canScarify>false</canScarify>
 		<tags/>
+        <modExtensions>
+            <li Class="EvolvedOrgansRedux.EVOR_DefModExtension_BodyPartDefToGetSurgeryDefsFromToModify">
+                <BodyPartDefToGetSurgeryDefsFromToModify>Clavicle</BodyPartDefToGetSurgeryDefsFromToModify>
+            </li>
+        </modExtensions>
 	</BodyPartDef>
 	<BodyPartDef>
 		<defName>EVOR_AdditionalHumerus</defName>
@@ -69,6 +94,11 @@
 		<frostbiteVulnerability>0</frostbiteVulnerability>
 		<canScarify>false</canScarify>
 		<tags/>
+        <modExtensions>
+            <li Class="EvolvedOrgansRedux.EVOR_DefModExtension_BodyPartDefToGetSurgeryDefsFromToModify">
+                <BodyPartDefToGetSurgeryDefsFromToModify>Humerus</BodyPartDefToGetSurgeryDefsFromToModify>
+            </li>
+        </modExtensions>
 	</BodyPartDef>
 	<BodyPartDef>
 		<defName>EVOR_AdditionalRadius</defName>
@@ -82,6 +112,11 @@
 		<frostbiteVulnerability>0</frostbiteVulnerability>
 		<canScarify>false</canScarify>
 		<tags/>
+        <modExtensions>
+            <li Class="EvolvedOrgansRedux.EVOR_DefModExtension_BodyPartDefToGetSurgeryDefsFromToModify">
+                <BodyPartDefToGetSurgeryDefsFromToModify>Radius</BodyPartDefToGetSurgeryDefsFromToModify>
+            </li>
+        </modExtensions>
 	</BodyPartDef>
 	<BodyPartDef>
 		<defName>EVOR_AdditionalEye</defName>
@@ -94,6 +129,11 @@
 		<socketed>false</socketed>
 		<beautyRelated>false</beautyRelated>
 		<tags/>
+        <modExtensions>
+            <li Class="EvolvedOrgansRedux.EVOR_DefModExtension_BodyPartDefToGetSurgeryDefsFromToModify">
+                <BodyPartDefToGetSurgeryDefsFromToModify>Eye</BodyPartDefToGetSurgeryDefsFromToModify>
+            </li>
+        </modExtensions>
 		<hitChanceFactors>
 			<li>
 				<key>Blunt</key>
@@ -109,6 +149,11 @@
 		<skinCovered>true</skinCovered>
 		<beautyRelated>false</beautyRelated>
 		<tags/>
+        <modExtensions>
+            <li Class="EvolvedOrgansRedux.EVOR_DefModExtension_BodyPartDefToGetSurgeryDefsFromToModify">
+                <BodyPartDefToGetSurgeryDefsFromToModify>Ear</BodyPartDefToGetSurgeryDefsFromToModify>
+            </li>
+        </modExtensions>
 	</BodyPartDef>
 	<BodyPartDef>
 		<defName>BodyCavity1</defName>
@@ -120,6 +165,11 @@
 		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
 		<frostbiteVulnerability>0</frostbiteVulnerability>
 		<canScarify>false</canScarify>
+        <modExtensions>
+            <li Class="EvolvedOrgansRedux.EVOR_DefModExtension_BodyPartDefToGetSurgeryDefsFromToModify">
+                <BodyPartDefToGetSurgeryDefsFromToModify>Lung</BodyPartDefToGetSurgeryDefsFromToModify>
+            </li>
+        </modExtensions>
 	</BodyPartDef>
 	<BodyPartDef>
 		<defName>BodyCavity2</defName>
@@ -131,6 +181,11 @@
 		<permanentInjuryChanceFactor>0</permanentInjuryChanceFactor>
 		<frostbiteVulnerability>0</frostbiteVulnerability>
 		<canScarify>false</canScarify>
+        <modExtensions>
+            <li Class="EvolvedOrgansRedux.EVOR_DefModExtension_BodyPartDefToGetSurgeryDefsFromToModify">
+                <BodyPartDefToGetSurgeryDefsFromToModify>Heart</BodyPartDefToGetSurgeryDefsFromToModify>
+            </li>
+        </modExtensions>
 	</BodyPartDef>
 	<BodyPartDef>
 		<defName>BodyCavityA</defName>

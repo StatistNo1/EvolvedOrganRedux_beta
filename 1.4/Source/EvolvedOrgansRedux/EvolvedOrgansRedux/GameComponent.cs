@@ -8,17 +8,9 @@ namespace EvolvedOrgansRedux {
     public static class AddEVORBodyPartsToRecipesIfResearchIsNotRequired {
         static AddEVORBodyPartsToRecipesIfResearchIsNotRequired() {
             if (!Settings.RequireResearchProject) {
-                BodyPartAffinity.AddEVORBodyPartsToRecipes(BodyPartDefOf.Eye, DefOf.EVOR_AdditionalEye);
-                BodyPartAffinity.AddEVORBodyPartsToRecipes(DefOf.Ear, DefOf.EVOR_AdditionalEar);
-                BodyPartAffinity.AddEVORBodyPartsToRecipes(DefOf.Shoulder, DefOf.LowerShoulder);
-                BodyPartAffinity.AddEVORBodyPartsToRecipes(DefOf.Finger, DefOf.EVOR_AdditionalFinger);
-                BodyPartAffinity.AddEVORBodyPartsToRecipes(BodyPartDefOf.Hand, DefOf.EVOR_AdditionalHand);
-                BodyPartAffinity.AddEVORBodyPartsToRecipes(DefOf.Radius, DefOf.EVOR_AdditionalRadius);
-                BodyPartAffinity.AddEVORBodyPartsToRecipes(DefOf.Humerus, DefOf.EVOR_AdditionalHumerus);
-                BodyPartAffinity.AddEVORBodyPartsToRecipes(BodyPartDefOf.Arm, DefOf.EVOR_AdditionalArm);
-                BodyPartAffinity.AddEVORBodyPartsToRecipes(DefOf.Clavicle, DefOf.EVOR_AdditionalClavicle);
-                BodyPartAffinity.AddEVORBodyPartsToRecipes(BodyPartDefOf.Lung, DefOf.BodyCavity1);
-                BodyPartAffinity.AddEVORBodyPartsToRecipes(BodyPartDefOf.Heart, DefOf.BodyCavity2);
+                foreach (BodyPartDef bodyPartDefToAdd in Singleton.Instance.Settings.Mod.Content.AllDefs.Where(e => e.GetType() == typeof(BodyPartDef) && e.HasModExtension<EVOR_DefModExtension_BodyPartDefToGetSurgeryDefsFromToModify>())) {
+                    BodyPartAffinity.AddEVORBodyPartsToRecipes(bodyPartDefToAdd.GetModExtension<EVOR_DefModExtension_BodyPartDefToGetSurgeryDefsFromToModify>().BodyPartDefToGetSurgeryDefsFromToModify, bodyPartDefToAdd);
+                }
             }
             BodyPartAffinity.AddCapModsToHediffs(BodyPartDefOf.Lung, PawnCapacityDefOf.Breathing, 0.1f);
             BodyPartAffinity.AddCapModsToHediffs(BodyPartDefOf.Heart, PawnCapacityDefOf.BloodPumping, 0.1f);
